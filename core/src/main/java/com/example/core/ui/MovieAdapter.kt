@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.core.R
 import com.example.core.domain.model.MovieModel
-import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val dataSet: ArrayList<MovieModel>, val listener: OnClickViewListener) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
@@ -32,7 +32,8 @@ class MovieAdapter(private val dataSet: ArrayList<MovieModel>, val listener: OnC
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val item = dataSet[position]
         viewHolder.titleMoview.text = item.title
-        Picasso.get().load("https://image.tmdb.org/t/p/original/"+item.image)
+        Glide.with(viewHolder.itemView.context)
+            .load("https://image.tmdb.org/t/p/original/"+item.image)
             .into(viewHolder.imageMovie)
 
         viewHolder.itemView.setOnClickListener{

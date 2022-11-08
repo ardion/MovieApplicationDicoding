@@ -1,7 +1,5 @@
 package com.example.movieapplicationdicoding.di
 
-import com.example.core.data.MovieRepository
-import com.example.core.domain.repository.IMovieRepository
 import com.example.core.domain.usecase.*
 import dagger.Binds
 import dagger.Module
@@ -24,4 +22,8 @@ abstract class MovieModule {
     @Binds
     @Singleton
     abstract fun provideSetFavoriteMoviesUseCase(useCase: SetFavoriteMoviesUseCase): ISetFavoriteMoviesUseCase
+
+    @Binds
+    @Singleton
+    abstract fun providePopularMovieUseCase(useCase: PopularMovieUseCase): IPopularMovieUseCase
 }

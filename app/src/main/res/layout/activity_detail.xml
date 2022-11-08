@@ -7,14 +7,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp"
         tools:context=".detail.DetailActivity">
 
         <ImageView
             android:id="@+id/imageMovie"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/image" />
 
@@ -25,7 +25,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             tools:text="how to get winner" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:fontFamily="serif"
             android:text="Overview"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-thin"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             tools:text="how to get winner" />
 
         <TextView
@@ -57,7 +57,7 @@
             android:fontFamily="serif"
             android:text="Popularity"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
 
@@ -68,7 +68,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-thin"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             tools:text="80.0" />
 
         <TextView
@@ -79,7 +79,7 @@
             android:fontFamily="serif"
             android:text="Date release"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -89,7 +89,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-thin"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             tools:text="20 Agustus 2020" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

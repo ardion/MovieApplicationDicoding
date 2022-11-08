@@ -52,7 +52,7 @@ class HomeFragment : Fragment(), MovieAdapter.OnClickViewListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }

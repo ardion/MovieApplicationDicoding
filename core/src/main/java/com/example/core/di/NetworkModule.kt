@@ -8,6 +8,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,6 +22,11 @@ object NetworkModule {
 
     private val BASE_URL = "https://api.themoviedb.org"
 
+    val hostname = "api.themoviedb.org"
+    val certificatePinner = CertificatePinner.Builder()
+        .add(hostname, "sha256/p+WeEuGncQbjSKYPSzAaKpF/iLcOjFLuZubtsXupYSI=")
+        .build()
+
     private fun provideHttpLoggingInterceptor() = run {
         HttpLoggingInterceptor().apply {
             apply { level = HttpLoggingInterceptor.Level.BODY }
@@ -32,6 +38,7 @@ object NetworkModule {
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(1, TimeUnit.MINUTES)
         .writeTimeout(1, TimeUnit.MINUTES)
+        .certificatePinner(certificatePinner)
         .build()
 
     @Provides
@@ -40,14 +47,13 @@ object NetworkModule {
         @ApplicationContext context: Context,
         logInterceptor: HttpLoggingInterceptor
     ): OkHttpClient {
-        val okHttpClient = OkHttpClient.Builder()
+
+        return OkHttpClient.Builder()
             .addInterceptor(provideHttpLoggingInterceptor())
             .connectTimeout(1, TimeUnit.MINUTES)
             .readTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .build()
-
-        return okHttpClient
 
     }
 
@@ -79,7 +85,6 @@ object NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
     }
 
 }

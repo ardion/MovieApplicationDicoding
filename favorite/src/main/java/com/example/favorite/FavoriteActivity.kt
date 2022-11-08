@@ -17,7 +17,7 @@ class FavoriteActivity : AppCompatActivity(), MovieAdapter.OnClickViewListener {
     lateinit var factory: ViewModelFactory
     private lateinit var binding: ActivityFavoriteBinding
 
-    private val viewModel: FavoriteViewModel by viewModels() {
+    private val viewModel: FavoriteViewModel by viewModels {
         factory
     }
 

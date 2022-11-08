@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,29 +11,37 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/fl_bottom_nav" />
+        tools:layout_editor_absoluteX="-37dp"
+        tools:layout_editor_absoluteY="-114dp" />
 
-    <LinearLayout
-        android:id="@+id/fl_bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#101010"
+    <Button
+        style="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:id="@+id/btn_popular"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_button"
+        android:drawableStart="@drawable/ic_baseline_format_list_numbered_24"
+        android:paddingStart="20dp"
+        android:backgroundTint="#673AB7"
+        android:text="Popular"
+        android:drawableTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_bottom_nav"
-            android:scrollIndicators="left"
-            app:itemIconTint="@color/bottom_nav_icon"
-            app:itemTextColor="@color/bottom_nav_icon"
-            app:menu="@menu/nav_menu" />
-    </LinearLayout>
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_favorite"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:text="Favorite"
+        android:drawableStart="@drawable/ic_favorite"
+        android:paddingStart="20dp"
+        android:drawableTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

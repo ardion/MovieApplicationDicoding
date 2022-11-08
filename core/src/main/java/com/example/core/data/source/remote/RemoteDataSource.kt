@@ -30,4 +30,19 @@ class RemoteDataSource @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
+    suspend fun getPopularMovie(): Flow<ApiResponse<List<MovieItemResponse>>> {
+        return flow {
+            try {
+                val response = movieService.getPopularMovies()
+                if (response.results.isNotEmpty()) {
+                    emit(ApiResponse.Success(response.results))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
 }

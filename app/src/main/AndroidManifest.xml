@@ -17,10 +17,14 @@
         android:theme="@style/AppTheme.Primary"
         tools:targetApi="31">
         <activity
+            android:name=".popular.PopularActivity"
+            android:exported="false" />
+        <activity
             android:name=".detail.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

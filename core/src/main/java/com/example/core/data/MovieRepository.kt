@@ -5,6 +5,7 @@ import com.example.core.data.source.remote.RemoteDataSource
 import com.example.core.data.source.remote.response.MovieItemResponse
 import com.example.core.data.source.remote.service.ApiResponse
 import com.example.core.domain.model.MovieModel
+import com.example.core.domain.model.PopularMovieModel
 import com.example.core.domain.repository.IMovieRepository
 import com.example.core.utils.DataMapper
 import kotlinx.coroutines.*
@@ -51,5 +52,28 @@ class MovieRepository @Inject constructor(
             DataMapper.mapEntitiesToDomainMovie(it)
         }
     }
+
+    override fun getPopularMovies(): Flow<Resource<List<PopularMovieModel>>> =
+        object : NetworkBoundResource<List<PopularMovieModel>, List<MovieItemResponse>>() {
+            override fun loadFromDB(): Flow<List<PopularMovieModel>> {
+                return localDataSource.getAllPopularMovie().map {
+                    DataMapper.mapEntitiesToDomainPopularMovie(it)
+                }
+            }
+
+            override fun shouldFetch(data: List<PopularMovieModel>?): Boolean {
+                return true
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieItemResponse>>> {
+                return remoteDataSource.getPopularMovie()
+            }
+
+            override suspend fun saveCallResult(data: List<MovieItemResponse>) {
+                val movieList = DataMapper.mapResponsesToEntitiesPopularMovie(data)
+                localDataSource.insertPopularMovie(movieList)
+            }
+        }.asFlow()
+
 }
 

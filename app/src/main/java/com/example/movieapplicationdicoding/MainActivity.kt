@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.core.ui.showSnackbar
 import com.example.movieapplicationdicoding.databinding.ActivityMainBinding
 import com.example.movieapplicationdicoding.home.HomeFragment
+import com.example.movieapplicationdicoding.popular.PopularActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,19 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         loadFragment(HomeFragment())
 
-        binding.bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.favorite -> {
-                    try {
-                        moveToFavoriteActivity()
-                    } catch (e: Exception) {
-                        showSnackbar(view, this)
-                    }
-                    true
-                }
-                else -> {
-                    false
-                }
+        binding.btnPopular.setOnClickListener {
+            startActivity(Intent(this, PopularActivity::class.java))
+        }
+
+        binding.btnFavorite.setOnClickListener {
+            try {
+                moveToFavoriteActivity()
+            } catch (e: Exception) {
+                showSnackbar(view, this)
             }
         }
 
@@ -48,4 +45,5 @@ class MainActivity : AppCompatActivity() {
     private fun moveToFavoriteActivity() {
         startActivity(Intent(this, Class.forName("com.example.favorite.FavoriteActivity")))
     }
+
 }

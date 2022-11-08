@@ -15,3 +15,15 @@ data class MovieModel(
     val release_date: String,
     val isFavorite: Boolean
 ):Parcelable
+
+@Parcelize
+data class PopularMovieModel(
+    val id:Int,
+    @SerializedName("poster_path")
+    val image: String,
+    @SerializedName("title")
+    val title: String,
+    val overview: String,
+    val popularity: Float,
+    val release_date: String
+):Parcelable

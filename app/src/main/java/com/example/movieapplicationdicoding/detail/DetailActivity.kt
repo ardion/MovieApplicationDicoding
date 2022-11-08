@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.core.domain.model.MovieModel
 import com.example.movieapplicationdicoding.R
 import com.example.movieapplicationdicoding.databinding.ActivityDetailBinding
 import com.example.movieapplicationdicoding.home.HomeFragment.Companion.ARG_DETAIL_PARAM
-import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class DetailActivity : AppCompatActivity() {
     private val viewModel: DetailViewModel by viewModels()
     private lateinit var binding: ActivityDetailBinding
     lateinit var movieModel: MovieModel
-    var isfavorite:Boolean=false
+    var isfavorite: Boolean = false
 
     companion object {
         fun getIntent(context: Context): Intent {
@@ -33,7 +33,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(view)
         intent.extras?.getParcelable<MovieModel>(ARG_DETAIL_PARAM)?.run {
             with(binding) {
-                Picasso.get().load("https://image.tmdb.org/t/p/original/" + this@run.image)
+                Glide.with(this@DetailActivity)
+                    .load("https://image.tmdb.org/t/p/original/" + this@run.image)
                     .into(imageMovie)
                 tvTitle.text = this@run.title
                 tvOverview.text = this@run.overview
@@ -47,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             isfavorite = !isfavorite
             setStatusFavorite(isfavorite)
-            viewModel.setFavoriteMovie(movieModel,isfavorite)
+            viewModel.setFavoriteMovie(movieModel, isfavorite)
         }
     }
 
