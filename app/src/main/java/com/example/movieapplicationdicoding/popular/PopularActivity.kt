@@ -4,17 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import com.example.core.data.Resource
-import com.example.core.domain.model.MovieModel
 import com.example.core.domain.model.PopularMovieModel
-import com.example.core.ui.MovieAdapter
 import com.example.core.ui.PopularMovieAdapter
 import com.example.core.ui.showSnackbar
-import com.example.movieapplicationdicoding.R
-import com.example.movieapplicationdicoding.databinding.ActivityMainBinding
 import com.example.movieapplicationdicoding.databinding.ActivityPopularBinding
-import com.example.movieapplicationdicoding.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

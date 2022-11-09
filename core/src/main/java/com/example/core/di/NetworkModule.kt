@@ -20,10 +20,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private val BASE_URL = "https://api.themoviedb.org"
+    private const val BASE_URL = "https://api.themoviedb.org"
 
-    val hostname = "api.themoviedb.org"
-    val certificatePinner = CertificatePinner.Builder()
+    private const val hostname = "api.themoviedb.org"
+    private val certificatePinner = CertificatePinner.Builder()
         .add(hostname, "sha256/p+WeEuGncQbjSKYPSzAaKpF/iLcOjFLuZubtsXupYSI=")
         .build()
 
@@ -33,7 +33,7 @@ object NetworkModule {
         }
     }
 
-    val okHttpClient = OkHttpClient.Builder()
+    private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(provideHttpLoggingInterceptor())
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(1, TimeUnit.MINUTES)

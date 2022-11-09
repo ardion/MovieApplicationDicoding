@@ -16,7 +16,8 @@
             android:id="@+id/imageMovie"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/image" />
+            android:src="@drawable/image"
+            android:contentDescription="@string/title_todo" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="serif"
-            android:text="Overview"
+            android:text="@string/title_overview"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -55,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="serif"
-            android:text="Popularity"
+            android:text="@string/title_popularity"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -77,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="serif"
-            android:text="Date release"
+            android:text="@string/title_date_release"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -98,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             app:backgroundTint="#FFFFFF"
-            app:layout_anchorGravity="bottom|end"/>
+            app:layout_anchorGravity="bottom|end"
+            android:contentDescription="@string/title_todo" />
 
     </LinearLayout>
 </ScrollView>

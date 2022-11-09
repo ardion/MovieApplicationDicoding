@@ -17,8 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
     private val viewModel: DetailViewModel by viewModels()
     private lateinit var binding: ActivityDetailBinding
-    lateinit var movieModel: MovieModel
-    var isfavorite: Boolean = false
+    private lateinit var movieModel: MovieModel
+    private var isfavorite: Boolean = false
 
     companion object {
         fun getIntent(context: Context): Intent {

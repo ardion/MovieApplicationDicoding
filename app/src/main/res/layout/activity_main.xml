@@ -24,11 +24,13 @@
         android:background="@drawable/bg_button"
         android:drawableStart="@drawable/ic_baseline_format_list_numbered_24"
         android:paddingStart="20dp"
+        android:paddingEnd="0dp"
         android:backgroundTint="#673AB7"
-        android:text="Popular"
+        android:text="@string/title_popular"
         android:drawableTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="m" />
 
     <Button
         android:id="@+id/btn_favorite"
@@ -37,11 +39,13 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bg_bottom_nav"
-        android:text="Favorite"
+        android:text="@string/title_favorite"
         android:drawableStart="@drawable/ic_favorite"
         android:paddingStart="20dp"
+        android:paddingEnd="0dp"
         android:drawableTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="m" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

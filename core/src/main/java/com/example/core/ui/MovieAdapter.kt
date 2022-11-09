@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.core.R
 import com.example.core.domain.model.MovieModel
 
-class MovieAdapter(private val dataSet: ArrayList<MovieModel>, val listener: OnClickViewListener) :
+class MovieAdapter(private val dataSet: ArrayList<MovieModel>, private val listener: OnClickViewListener) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

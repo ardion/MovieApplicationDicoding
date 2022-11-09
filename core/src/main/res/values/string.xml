@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_overview">Overview</string>
+    <string name="title_todo">TODO</string>
+    <string name="title_popularity">Popularity</string>
+    <string name="title_date_release">Date release</string>
+    <string name="title_popular">Popular</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="label_tile">Title</string>
+</resources>

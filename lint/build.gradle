@@ -13,7 +13,7 @@ ext {
 }
 
 dependencies {
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.7.0"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
 }
