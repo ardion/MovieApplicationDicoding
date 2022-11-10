@@ -4,7 +4,7 @@
     android:layout_height="302dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingHorizontal="16dp"
-    android:background="#0C0C0C"
+    android:background="@color/bg_primary"
     android:layout_marginBottom="10dp">
 
     <ImageView

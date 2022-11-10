@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            app:backgroundTint="#FFFFFF"
+            app:backgroundTint="@color/white"
             app:layout_anchorGravity="bottom|end"
             android:contentDescription="@string/title_todo" />
 
